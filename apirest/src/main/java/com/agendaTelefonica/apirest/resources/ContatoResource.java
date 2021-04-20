@@ -13,48 +13,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.agendaTelefonica.apirest.models.Agenda;
-import com.agendaTelefonica.apirest.repository.AgendaRepository;
+import com.agendaTelefonica.apirest.models.Contato;
+import com.agendaTelefonica.apirest.repository.ContatoRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value="/api")
-@Api(value="API Rest Agendas")
+@Api(value="API Rest Contatos")
 @CrossOrigin(origins="*")
-public class AgendaResource {
+public class ContatoResource {
 	@Autowired
-	AgendaRepository agendaRepository;
+	ContatoRepository contatoRepository;
 	
-	@GetMapping("/agendas")
+	@GetMapping("/contatos")
 	@ApiOperation(value="Retorna uma lista de contatos")
-	public List<Agenda> listaAgendas(){
-		return agendaRepository.findAll();
+	public List<Contato> listaContatos(){
+		return contatoRepository.findAll();
 	}
 	
-	@GetMapping("/agenda/{id}")
+	@GetMapping("/contato/{id}")
 	@ApiOperation(value="Retorna um contato unico")
-	public Agenda AgendasUnico(@PathVariable(value="id")long id){
-		return agendaRepository.findById(id);				
+	public Contato ContatoUnico(@PathVariable(value="id")long id){
+		return contatoRepository.findById(id);				
 				
 	}
 			
-	@PostMapping("/agenda")
+	@PostMapping("/contato")
 	@ApiOperation(value="Salva um contato unico")
-	public Agenda salvaAgenda(@RequestBody Agenda agenda) {
-		return agendaRepository.save(agenda);
+	public Contato salvaContato(@RequestBody Contato contato) {
+		return contatoRepository.save(contato);
 	}
 	
-	@DeleteMapping("/agenda")
+	@DeleteMapping("/contato")
 	@ApiOperation(value="Deleta um contato unico")
-	public void deletaAgenda(@RequestBody Agenda agenda) {
-		agendaRepository.delete(agenda);
+	public void deletaContato(@RequestBody Contato contato) {
+		contatoRepository.delete(contato);
 	}
 	
-	@PutMapping("/agenda")
+	@PutMapping("/contato")
 	@ApiOperation(value="Atualiza um contato unico")
-	public Agenda atualizaAgenda(@RequestBody Agenda agenda) {
-		return agendaRepository.save(agenda);
+	public Contato contato(@RequestBody Contato contato) {
+		return contatoRepository.save(contato);
 	}
 }

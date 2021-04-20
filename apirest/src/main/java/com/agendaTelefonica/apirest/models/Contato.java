@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TB_AGENDA")
-public class Agenda implements Serializable {
+public class Contato implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id

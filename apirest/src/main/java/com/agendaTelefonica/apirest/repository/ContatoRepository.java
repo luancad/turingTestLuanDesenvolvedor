@@ -2,9 +2,9 @@ package com.agendaTelefonica.apirest.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.agendaTelefonica.apirest.models.Agenda;
+import com.agendaTelefonica.apirest.models.Contato;
 
-public interface AgendaRepository extends JpaRepository<Agenda, Long>{
+public interface ContatoRepository extends JpaRepository<Contato, Long>{
 	
-	Agenda findById(long id);
+	Contato findById(long id);
 }
